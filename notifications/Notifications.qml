@@ -17,12 +17,12 @@ PopupWindow {
   anchor.rect.x: panelWindow.width - 500
   anchor.rect.y: panelWindow.height
   implicitWidth: 500
-  implicitHeight: notificationColumn.height + 20
+  implicitHeight: notificationColumn.height + 10
   visible: isVisible && notificationServer.trackedNotifications.values.length > 0
 
   ColumnLayout {
     id: notificationColumn
-    spacing: 10
+    spacing: 0
 
     Repeater {
       model: notificationServer.trackedNotifications.values
@@ -34,6 +34,9 @@ PopupWindow {
         width: 480
         height: 100
 
+        Layout.leftMargin: 10
+        Layout.topMargin: 10
+  
         MouseArea {
           anchors.fill: parent
           onClicked: parent.modelData.dismiss()
